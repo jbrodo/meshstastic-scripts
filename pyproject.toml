@@ -1,0 +1,7 @@
+[project]
+name = "meshtastic-scripts"
+version = "0.1.0"
+description = "Ispezione seriale in sola lettura di nodi Meshtastic Heltec LoRa 32 V3"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["meshtastic>=2.0"]
