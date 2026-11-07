@@ -46,6 +46,12 @@ class NodeTests(unittest.TestCase):
             main.read_node()
         self.interface.close.assert_called_once()
 
+    def test_closes_when_reading_node_raises(self):
+        self.interface.getMyNodeInfo.side_effect = RuntimeError("read failed")
+        with self.assertRaisesRegex(RuntimeError, "read failed"):
+            main.read_node()
+        self.interface.close.assert_called_once()
+
     def test_json_output(self):
         output = io.StringIO()
         with contextlib.redirect_stdout(output):
